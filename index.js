@@ -1,11 +1,22 @@
 const Joi=require('joi')
+const config=require('config')
 const express= require('express')
-const log=require('./logger')
+const logger=require('./logger')
 const autenticate=require('./autenticate')
 const app=express()
 
 app.use(express.json())
-app.use(log)
+app.use(express.urlencoded({extended:true}))
+app.use(express.static('public'))
+
+//configuration
+console.log('Application Name: '+ config.get('name'))
+console.log('Mail Server: '+config.get('mail.host'))
+console.log('Mail password: '+config.get('mail.password'))
+
+
+
+app.use(logger)
 app.use(autenticate)
 
 
