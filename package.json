@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "config": "^3.3.12",
+    "debug": "^4.3.6",
     "express": "^4.19.2",
     "joi": "^17.13.3"
   }
